@@ -20,6 +20,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ConvocatoriaunoComponent } from './convocatoriauno/convocatoriauno.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ConvocatoridosComponent } from './convocatoridos/convocatoridos.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,7 @@ import { ConvocatoridosComponent } from './convocatoridos/convocatoridos.compone
     MdbWysiwygModule,
     AppRoutingModule,
   ],
-  providers: [MDBSpinningPreloader],
+  providers: [MDBSpinningPreloader, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent],
   schemas:      [ NO_ERRORS_SCHEMA ]
 })
